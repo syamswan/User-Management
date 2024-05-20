@@ -1,0 +1,34 @@
+thead tr th {
+    background: #78518352 !important;
+    color: white !important;
+}
+
+thead {
+    background: #12467b33;
+}
+
+tbody {
+    background: #000000a1;
+}
+
+tbody tr {
+    color: white !important;
+    
+}
+
+.css-xd6d2e-JoyTable-root tr:not(:last-of-type)>td,
+.css-xd6d2e-JoyTable-root tr:not(:last-of-type)>th[scope="row"] {
+    border: unset !important;
+}
+
+tbody tr:hover {
+    background: darkslateblue !important;
+    color: white !important;
+}
+
+.css-bw1wnx-JoyInput-root,
+.css-1cquhrj-JoyTextarea-root {
+    background: #60006500 !important;
+    border: 1px solid #de58ff !important;
+    color: white !important;
+}
