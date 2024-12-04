@@ -57,7 +57,7 @@ function UserManagement() {
   // UsersList
 
   function fetchUsers() {
-    fetch("http://localhost:4000/users")
+    fetch("http://localhost:4000/api/users")
       .then((response) => response.json())
       .then((json) => setUserData(json))
       .catch((error) => console.error(error));
@@ -122,7 +122,24 @@ function UserManagement() {
         </Sheet>
       );
     } else {
-      return;
+      return (
+        <Table hoverRow stickyHeader>
+          <thead>
+            <tr>
+              <th>S.no</th>
+              <th>User Name</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>City</th>
+              <th>Address</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr colSpan={7}>No Data Available</tr>
+          </tbody>
+        </Table>
+      );
     }
   }
 
@@ -174,7 +191,7 @@ function UserManagement() {
         Address: personalDetails.address,
       };
 
-      personUrl = "http://localhost:4000/users/edit";
+      personUrl = "http://localhost:4000/api/users/edit";
       editStatus = true;
     } else {
       personJson = {
@@ -186,7 +203,7 @@ function UserManagement() {
         Address: personalDetails.address,
       };
 
-      personUrl = "http://localhost:4000/users/add";
+      personUrl = "http://localhost:4000/api/users/add";
       editStatus = false;
     }
 
@@ -346,7 +363,7 @@ function UserManagement() {
 
   function deleteUserForm(deleteId) {
     axios
-      .delete("http://localhost:4000/users/delete", {
+      .delete("http://localhost:4000/api/users/delete", {
         data: { PersonID: deleteId },
         headers: {
           Accept: "application/json",
@@ -454,9 +471,7 @@ function UserManagement() {
         xs={12}
         style={{ padding: "10px", display: "flex", color: "white" }}
       >
-        <PeopleIcon
-          sx={{ marginRight: "10px", marginBlockStart: "18px" }}
-        />
+        <PeopleIcon sx={{ marginRight: "10px", marginBlockStart: "18px" }} />
         <h4>User Management</h4>
       </Grid>
       <Grid xs={4}>

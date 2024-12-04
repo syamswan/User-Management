@@ -14,8 +14,8 @@ router.get("/", (req, res, next) => {
     }
 
     const UsersList = results.map((ele) => {
-       delete ele.PasswordHash;
-       return ele;
+      delete ele.PasswordHash;
+      return ele;
     });
 
     res.status(200).json({
@@ -71,8 +71,6 @@ function addUser(req, res) {
   bcrypt.hash(user.PasswordHash, saltRounds, (err, hash) => {
     if (err) throw err;
 
-    console.log(hash);
-
     const sql =
       "INSERT INTO Users (UserName, FirstName, LastName, PasswordHash, City, Address) VALUES (?, ?, ?, ?, ?, ?)";
     db.query(
@@ -87,7 +85,6 @@ function addUser(req, res) {
       ],
       (err, result) => {
         if (err) {
-          console.error(err);
           return res.status(500).send("Error adding user");
         } else {
           res.status(200).json({
@@ -154,7 +151,6 @@ function editUser(req, res) {
     ],
     (err, result) => {
       if (err) {
-        console.error(err);
         return res.status(500).send("Error editing user");
       } else {
         res.status(200).json({
