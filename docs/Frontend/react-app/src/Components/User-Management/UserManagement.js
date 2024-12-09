@@ -448,7 +448,11 @@ function UserManagement() {
     }
   }
   return (
-    <Grid container style={{ backgroundColor: "transparent", borderRadius: 0 }}>
+    <Grid
+      className="user-manage-section"
+      container
+      style={{ backgroundColor: "transparent", borderRadius: 0, marginTop: 60 }}
+    >
       {handleModal()}
       {userAlertStatus && (
         <Stack

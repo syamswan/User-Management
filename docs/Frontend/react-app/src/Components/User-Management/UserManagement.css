@@ -1,3 +1,7 @@
+.user-manage-section {
+    height: 100%;
+}
+
 thead tr th {
     background: #78518352 !important;
     color: white !important;

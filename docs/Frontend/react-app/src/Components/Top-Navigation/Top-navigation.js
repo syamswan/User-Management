@@ -19,6 +19,7 @@ import Cart from "../Cart/Cart";
 import UserManagement from "../User-Management/UserManagement";
 import logo from "../../logo_order.png";
 import "./Top-Navigation.css";
+import Footer from "../Footer/Footer";
 
 const pages = ["", "Products", "Cart", "UserManagement"];
 const sideMenu = ["Reset-password", "Logout"];
@@ -45,7 +46,10 @@ function TopNavigationRender() {
   return (
     <Router>
       <div>
-        <AppBar position="static" sx={{ background: "#000000a1" }}>
+        <AppBar
+          position="static"
+          sx={{ background: "#a5a9a93d", position: "fixed", top: 0, left: 0 }}
+        >
           <Container maxWidth="xl">
             <Toolbar disableGutters>
               <img
@@ -117,9 +121,7 @@ function TopNavigationRender() {
                 {pages.map((page) => (
                   <Link key={page} to={`/${page.toLowerCase()}`}>
                     <MenuItem key={page}>
-                      <Typography textAlign="center">
-                        {page}
-                      </Typography>
+                      <Typography textAlign="center">{page}</Typography>
                     </MenuItem>
                   </Link>
                 ))}
@@ -153,7 +155,9 @@ function TopNavigationRender() {
                   {sideMenu.map((page) => (
                     <Link
                       key={page}
-                      to={`/${page === "Logout" ? "login" : page.toLowerCase()}`}
+                      to={`/${
+                        page === "Logout" ? "login" : page.toLowerCase()
+                      }`}
                     >
                       <MenuItem key={page}>
                         <Typography textAlign="center">{page}</Typography>
@@ -172,6 +176,8 @@ function TopNavigationRender() {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/UserManagement" element={<UserManagement />} />
         </Routes>
+
+        <Footer />
       </div>
     </Router>
   );
