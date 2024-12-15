@@ -1,0 +1,22 @@
+#login-header {
+    text-align: center;
+}
+
+#login-credential {
+    text-align: center;
+}
+
+.outlined-basic {
+    margin-top: 20px !important;
+    width: 100%;
+}
+
+#login-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+#login-footer a{
+    color: red;
+}
